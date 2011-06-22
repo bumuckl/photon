@@ -1,0 +1,6 @@
+name: Photon Gallery
+description: Photon Gallery is a gallery and photomanagement plugin for Croogo CMS, originally based on Edinei L. Cipriani gallery plugin and extended alot. Photon's administration is AJAX-powered and has 4 different built-in ways of displaying your photos: either in an Image Replacement gallery, in a slider gallery, in JQuery Popeye gallery or in single images. Multisites support to allow custom themes for custom sites is yet to come. Another special feature is the so called "NodeAlbum"-Feature: For each node a specific album is automatically created. Thus, you can upload photos directly when creating nodes in another tab!
+
+author: bumuckl (& Edinei L. Cipriani of course)
+authorEmail: bumuckl@gmail.com
+authorUrl: http://www.bumuckl.com

@@ -1,0 +1,5 @@
+#
+# Default translation for Photon Gallery
+#
+# nothing in here since, we all can speak some engrish, and the default views also are in funny engrish :P
+#

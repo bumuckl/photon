@@ -85,14 +85,12 @@
 
 #popeye .ppy-caption {
     margin:         5px 0 0 0;
-    padding:        10px;
+    padding:        5px;
     font-size:      0.9em;
+	font-weight:bold;
     line-height:    1.3em;
-    color:          #809f21;
-    background:     #eeffa8;
-    border-radius:          10px;
-    -moz-border-radius:     10px;
-    -webkit-border-radius:  10px;
+    color:          #444444;
+   	background:     #ff4b33;
     box-shadow:         0 0 7px #ccc;
     -moz-box-shadow:    0 0 7px #ccc;
     -webkit-box-shadow: 0 0 7px #ccc;
@@ -129,7 +127,6 @@
         rgb(12,59,61) 0%,
         rgb(58,131,133) 100%
     );
-    width:          104px;
     height:         32px;
     padding:        5px;
     position:       absolute;

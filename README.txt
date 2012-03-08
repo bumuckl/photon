@@ -1,8 +1,8 @@
 ﻿### Description ###
 
-Photon Gallery is a gallery and photomanagement plugin for Croogo CMS, originally based on Edinei L. Cipriani gallery plugin and extended alot. Photon's administration is AJAX-powered and has 4 different built-in ways of displaying your photos: either in an Image Replacement gallery, in a slider gallery, in JQuery Popeye gallery or in single images. Multisites support to allow custom themes for custom sites is yet to come.
+Photon Gallery is a gallery and photomanagement plugin for Croogo CMS, originally based on Edinei L. Cipriani's gallery plugin. However it offers much more features and capabilities - it is heavily extended. Photon's administration is AJAX-powered and integrates flawlessly into your existing Croogo install. A new Tab is added to your nodes which allows you to upload pictures via Ajax - those pictures are directly related to that specific node. Doing so, Photon features four different preconfigured ways of displaying your photos: either in an Image Replacement gallery, in a Slider gallery, in JQuery Popeye gallery or just as single images. A seperate set of administration-views allows you to have full control over all your gallery stuff.
 
-A special feature is the so called "NodeAlbum"-Feature: For each node a specific album is automatically created. Thus, you can upload photos directly when creating nodes in another tab!
+Once again, to point out the most special feature, the so called "NodeAlbum"-feature: For each node a specific album is automatically created. Thus, you can upload photos directly when creating nodes!
 
 ### Installation ###
 
@@ -24,3 +24,7 @@ When running your Croogo with markdown, please make sure you first activate mark
 Author: bumuckl (& Edinei L. Cipriani)
 E-mail: <bumuckl@gmail.com>
 Website: http://www.bumuckl.com
+
+### Thanks to... ###
+
+Big thanks go to "mherb" (https://github.com/mherb) for fixing tons of bugs and adding nice features such as single picture management!

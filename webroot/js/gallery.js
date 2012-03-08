@@ -1,10 +1,21 @@
 $(document).ready(function(){
+	
+	//Lightbox Settings
+	var lightbox_settings = {
+		imageLoading: 	'/photon/img/lightbox-ico-loading.gif',
+		imageBtnClose: 	'/photon/img/lightbox-btn-close.gif',
+		imageBtnPrev: 	'/photon/img/lightbox-btn-prev.gif',
+		imageBtnNext: 	'/photon/img/lightbox-btn-next.gif',
+		imageBlank: 	'/photon/img/lightbox-blank.gif',
+		txtImage: 		'Image',
+		txtOf: 			'of'
+	}
 
 	//Add lightbox to any pictures wearing this class
-	$('div[id^=gallery] a.big').lightBox();
-	$('a.single_thumb').lightBox();
-	$('a.slider').lightBox();
-	$('#slider li a').lightBox();
+	$('div[id^=gallery] a.big').lightBox(lightbox_settings);
+	$('a.single_thumb').lightBox(lightbox_settings);
+	$('a.slider').lightBox(lightbox_settings);
+	$('#slider li a').lightBox(lightbox_settings);
 	
 	//Image replacement Gallery for #gallery
 	$("div[class^=gallery] a.thumb").click(function(){

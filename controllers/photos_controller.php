@@ -14,6 +14,22 @@
 class PhotosController extends PhotonAppController {
 
 	var $name = 'Photos';
+	
+	var $helpers = array(
+		'Layout',
+		'Html',
+	);
+	
+	/*
+	 * @description Shows an index overview for all photos in any album
+	 */
+	public function admin_index() {
+	    $this->set('title_for_layout', __d('photon','Photos', true));
+
+		$this->Photo->recursive = -1;
+		$this->paginate = array('order' => 'id ASC');
+		$this->set('photos', $this->paginate('Photo'));
+	}
 
 	/*
 	 * @description View a single photo

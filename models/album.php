@@ -36,7 +36,6 @@ class Album extends AppModel {
 				'finderQuery' => '',
 				'counterQuery' => ''
 			),
-
 	);
 	
 	var $belongsTo = array(
@@ -45,6 +44,16 @@ class Album extends AppModel {
             'foreignKey'    => 'node_id'
         )
     );  
+
+	function paginateCount($conditions = null, $recursive = 0, $extra = array()) {
+		if (!empty($extra) && isset($extra['customCount'])) {
+			return $extra['customCount'];
+		}
+        $count = $this->find('count', array(
+			'conditions' => $conditions,
+		));
+        return $count;
+    }
 
 }
 ?>

@@ -35,6 +35,7 @@ class PhotonActivation {
 		$controller->Croogo->addAco('Albums/admin_upload_photo', array('admin'));
 		$controller->Croogo->addAco('Albums/admin_delete_photo', array('admin'));
 		$controller->Croogo->addAco('Photos');
+		$controller->Croogo->addAco('Photos/admin_index', array('admin'));
 		$controller->Croogo->addAco('Photos/view', array('registered','public'));
 		$controller->Croogo->addAco('Photos/admin_updateTitleAndDescription', array('admin'));
 		

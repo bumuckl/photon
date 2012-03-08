@@ -20,9 +20,11 @@
 
         $rows = array();
         foreach ($albums as $album) {
-        	//$actions  = $html->link(__('Move up', true), array('controller' => 'albums', 'action' => 'moveup', $album['Album']['id']));
-            //$actions .= ' ' . $html->link(__('Move down', true), array('controller' => 'albums', 'action' => 'movedown', $album['Album']['id']));
            	$actions = $html->link(__d('photon','Photos in album', true), array('controller' => 'albums', 'action' => 'edit', $album['Album']['id'], '#album-images'));
+
+			$actions .= ' ' . $html->link(__('Move up', true), array('controller' => 'albums', 'action' => 'moveup', $album['Album']['id']));
+            $actions .= ' ' . $html->link(__('Move down', true), array('controller' => 'albums', 'action' => 'movedown', $album['Album']['id']));
+
 			$actions .= ' ' . $layout->adminRowActions($album['Album']['id']);
             $actions .= ' ' . $html->link(__('Edit', true), array('controller' => 'albums', 'action' => 'edit', $album['Album']['id']) );
             $actions .= ' ' . $html->link(__('Delete', true), array('controller' => 'albums', 'action' => 'delete', $album['Album']['id']), null, __('Are you sure you want to delete this album?', true));

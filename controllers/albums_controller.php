@@ -107,6 +107,26 @@ class AlbumsController extends PhotonAppController {
 		}
 		$this->render(false);
 	}
+	
+	public function admin_moveup($id, $step = 1) {
+        if( $this->Album->moveup($id, $step) ) {
+            $this->Session->setFlash(__('Moved up successfully', true), 'default', array('class' => 'success'));
+        } else {
+            $this->Session->setFlash(__('Could not move up', true), 'default', array('class' => 'error'));
+        }
+
+        $this->redirect(array('action' => 'index'));
+    }
+    
+    public function admin_movedown($id, $step = 1) {
+        if( $this->Album->movedown($id, $step) ) {
+            $this->Session->setFlash(__('Moved down successfully', true), 'default', array('class' => 'success'));
+        } else {
+            $this->Session->setFlash(__('Could not move down', true), 'default', array('class' => 'error'));
+        }
+
+        $this->redirect(array('action' => 'index'));
+    }
 
 	/*
 	 * @description Public index view, displaying all albums (accessible via yoururl.tld/gallery)
@@ -114,15 +134,39 @@ class AlbumsController extends PhotonAppController {
 	 */
 	public function index() {
 		$this->set('title_for_layout',__d('photon',"Albums", true));
+		
+		//We're gonna use this in order to hack the pagination a bit
+		$customCount = $this->Album->find('count', array(
+			'conditions' => array('Album.status' => 1),
+			'fields' => 'DISTINCT Album.id',
+			'joins'  => array(
+		    	array(
+		        	'table' => 'photos',
+		        	'alias' => 'Photos',
+		        	'type' => 'inner',
+		        	'conditions' => array('Album.id = Photos.album_id'),
+		        )
+		    ),
+    	));
 
 		$this->Album->recursive = -1;
 		$this->Album->Behaviors->attach('Containable');
 		$this->paginate = array(
 				'conditions' => array('Album.status' => 1),
-				'contain' => array('Photo' => array('limit' => 1)),
+				'contain' => array('Photo'),
+				'fields' => array('DISTINCT Album.id', 'Album.*'),
+				'joins'  => array(
+				    array(
+				        'table' => 'photos',
+				        'alias' => 'Photos',
+				        'type' => 'inner',
+				        'conditions' => array('Album.id = Photos.album_id'),
+				        )
+				    ),
 				'limit' => Configure::read('Photon.album_limit_pagination'),
-				'order' => 'Album.position ASC');
-
+				'order' => 'Album.position ASC',
+				'customCount' => $customCount, //This is kind of a hacky part
+		);
 
 		$this->set('albums', $this->paginate());
 	}

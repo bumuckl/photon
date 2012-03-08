@@ -1,28 +1,37 @@
-
-
-	<h2><?php __d('photon','Albums');?></h2>
+<?php
+	$counter = 0; //We need a counter in order to set up popeye properly
+?>
+<header>
+    <hgroup>
+        <h1>»<?php __d('photon','Albums');?>«</h1>
+        <h3>...proudly presenting my gallery!</h3>
+    </hgroup>
+</header>
 	
-	<?php if(count($albums) == 0): __d('photon','No albums found.'); else: ?>
+	<?php if(count($albums) == 0): 
+		echo '<article><p class="notification">';
+        __d('photon','No albums found.');
+		echo '</p></article>';
+	else: ?>
 		<div class="albums">
-			<style>
-				.albums ul li{
-					margin:0px 0px 5px 10px;
-					display:block;
-					clear:both;
-					list-style:none;
-					padding:0px;
-				}
-			</style>
-		<ul>
 		<?php foreach($albums as $album): ?>
-			<li>
-				<h3><?php echo $album['Album']['title']; ?></h3>
-				<p><?php echo $this->Html->image('photos/'.$album['Photo'][0]['small'], array('style' => 'float:left;margin:5px 5px 5px 0px;')); ?><?php echo $album['Album']['description']; ?></p>
-				<?php echo $this->Html->link(__d('photon','view album', true), array('plugin' => 'gallery', 'controller' => 'album', 'action' => $album['Album']['slug'])); ?>
-			</li>
+				<?php //if (!empty($album['Photo'][0]['small'])) : ?>
+				<article class="clearfix">
+					<header>
+						<div class="thumb">
+							<?php echo $this->element('popeye', array("slug" => $album['Album']['slug'], "album" => $album, "popeye_id" => $counter)); $counter++; ?>
+						</div>
+						<h2><?php echo $album['Album']['title']; ?></h2>
+						<div class="description"><?php echo $album['Album']['description']; ?></div>
+					</header>
+					<p><?php echo $this->Html->link(__d('photon','view album', true), array('plugin' => 'gallery', 'controller' => 'album', 'action' => $album['Album']['slug']), array('class' => 'button')); ?></p>
+				</article>
+				<?php //endif; ?>
 		<?php endforeach; ?>
-		</ul>
 		</div> 
 	<?php endif; ?>	
- 	<div class="paging"><?php echo $paginator->numbers(); ?></div>
+	
+<footer>
+	<nav id="pagination"><?php echo $paginator->numbers(); ?></nav>
+</footer>
               

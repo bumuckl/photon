@@ -14,14 +14,13 @@
 
 /* fallback styles for image list */
 .ppy-imglist {
+	display: none;
     width:          100%;
     display:        block;
     overflow:       hidden;
-    
 }
 .ppy-imglist li {
     padding:        10px;
-    border:         1px solid #f0f0f0;
     border-radius:          5px;
     -moz-border-radius:     5px;
     -khtml-border-radius:   5px;
@@ -37,17 +36,17 @@
     border:         0;
 }
 #popeye .ppy-extcaption {
-    width:          240px;
+    width:          120px;
     display:        block;
 }
 #popeye .ppy-imglist li {
-    width:          240px;
-    height:         270px;
+    width:          120px;
+    height:         80px;
 }
 #ppy2 .ppy-imglist li,
 #ppy2 .ppy-imglist li a {
-    width:              160px;
-    height:             160px;
+    width:              120px;
+    height:             80px;
     overflow:           hidden;
     display:        block;
 }
@@ -57,55 +56,55 @@
 
 /* popeye example 1 */
 #popeye.ppy-active {
-    width:          262px;
+    width:          120px;
     float:          left;
-    margin:         0 20px 10px 0;
+    margin:         0 28px 10px 0;
 }
 
 #popeye .ppy-outer {
-    padding:        5px;
-    background:     #444444;
 }
 
 #popeye .ppy-stage {
-    width:          240px;
-    height:         173px;
-    border-radius:          0 5px 5px 5px;
-    -moz-border-radius:     0 5px 5px 5px;
-    -webkit-border-radius:  0 5px 5px 5px;
+    width: 120px;
+    height: 80px;
+	padding: 0px;
+	border: 4px solid #ffffff;
+    box-shadow:         0 0 4px #666666;
+    -moz-box-shadow:    0 0 4px #666666;
+    -webkit-box-shadow: 0 0 4px #666666;
+}
+
+#popeye .ppy-stage:hover {
+	border: 4px solid #a50000;
 }
 
 #popeye .ppy-outer:hover,
 #popeye.ppy-expanded .ppy-outer {
-    background: #ff4b33;
-    box-shadow:         0 0 7px #ccc;
-    -moz-box-shadow:    0 0 7px #ccc;
-    -webkit-box-shadow: 0 0 7px #ccc;
 }
 
 #popeye .ppy-caption {
-    margin:         5px 0 0 0;
+    margin:         3px 0 0 0;
     padding:        5px;
-    font-size:      0.9em;
+    font-size:      12px;
 	font-weight:bold;
     line-height:    1.3em;
-    color:          #444444;
-   	background:     #ff4b33;
-    box-shadow:         0 0 7px #ccc;
-    -moz-box-shadow:    0 0 7px #ccc;
-    -webkit-box-shadow: 0 0 7px #ccc;
+    color:          #ffffff;
+   	background:     #a50000;
+    box-shadow:         0 0 4px #666666;
+    -moz-box-shadow:    0 0 4px #666666;
+    -webkit-box-shadow: 0 0 4px #666666;
     visibility:         hidden; /* prevent flash of content before popeye loads */
+	border-radius: 0px 0px 4px 4px;
 }
 
 #popeye .ppy-caption a {
-    color:          #66bde9;
+    color:          #a50000;
 }
 #popeye .ppy-caption a:hover {
     text-decoration:underline;
 }
 
 #popeye .ppy-counter {
-    border-bottom:  1px solid #d5e68e;
     color:          #b8cf5a;
     padding:        0 0 2px 0;
     margin:         0 0 5px 0;
@@ -121,12 +120,7 @@
 }
 
 #popeye .ppy-nav {
-    background:     #666666;
-    background:     -moz-linear-gradient(
-        center bottom,
-        rgb(12,59,61) 0%,
-        rgb(58,131,133) 100%
-    );
+    background:     #111111;
     height:         32px;
     padding:        5px;
     position:       absolute;
@@ -168,6 +162,6 @@
 }
 
 #popeye .ppy-nav a:hover {
-    background-color:   #ff4b33;
+    background-color:   #a50000;
     cursor:         pointer;
 }

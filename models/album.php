@@ -14,6 +14,13 @@
 class Album extends AppModel {
 
 	var $name = 'Album';
+	
+	var $actsAs = array(
+	      'Ordered' => array(
+	          'field' => 'position',
+	          'foreign_key' => false,
+	      ),
+	);
 
 	var $validate = array(
 		'slug' => array(
